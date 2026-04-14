@@ -1,5 +1,5 @@
 {% set name = "sweets" %}
-{% set version = "0.2.2" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/isce-framework/sweets/archive/v{{ version }}.tar.gz
-  sha256: 4cfddd24230878d5c73c031f09f5c95e7f12dcba640d1354a92d3b12c6404aec
+  sha256: 5abb9326642ae73b29aac0997ce6bdd7d5759d8b4eb3b7e33a1f6c7971cf58aa
 
 build:
   entry_points:
@@ -16,7 +16,7 @@ build:
   script:
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
     - {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
