@@ -50,7 +50,6 @@ requirements:
     - sardem
     - sentineleof
     - shapely >=2.0
-    - spurt
     - tyro
 
 test:
