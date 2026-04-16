@@ -1,5 +1,6 @@
 {% set name = "sweets" %}
-{% set version = "0.2.2" %}
+{% set version = "0.3.1" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +8,7 @@ package:
 
 source:
   url: https://github.com/isce-framework/sweets/archive/v{{ version }}.tar.gz
-  sha256: 4cfddd24230878d5c73c031f09f5c95e7f12dcba640d1354a92d3b12c6404aec
+  sha256: 00823ee4682498f50476aabb0f449137a7ba6c7f84f6cad86b8c0f20790f0615
 
 build:
   entry_points:
@@ -16,7 +17,7 @@ build:
   script:
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
     - {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -26,25 +27,43 @@ requirements:
     - pip >=21.3
   run:
     - python >={{ python_min }}
-    - wget # ASF Downloading
+    - affine
+    - aiohttp
+    - asf_search
+    - botocore
+    - burst2safe
     - compass >=0.4.1
     - dask
     - dolphin >=0.3.0
+    - fsspec
     - gdal
-    - h5py
+    - geopandas
+    - h5netcdf
+    - h5py >=3.6
     - hdf5 !=1.12.2 # https://github.com/SciTools/iris/issues/5187 and https://github.com/pydata/xarray/issues/7549
-    - numpy
+    - isce3 >=0.24
+    - libgdal-netcdf
+    - loguru
+    - numpy >=1.25
+    - opera-utils
+    - pandas
     - pydantic >=2.1
-    - pyproj >=3.3
-    - pyre >=1.12.1
+    - pyogrio
+    - pyproj >=3.2
     - python-dateutil
     - rasterio
-    - requests
-    - rich
+    - requests >=2.10
+    - rich >=12.0
     - rioxarray
+    - s3fs
     - sardem
+    - scipy
     - sentineleof
-    - shapely
+    - shapely >=2.0
+    - tqdm
+    - tyro
+    - xarray
+    - zarr >=3
 
 test:
   imports:
