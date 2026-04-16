@@ -1,5 +1,6 @@
 {% set name = "sweets" %}
 {% set version = "0.3.1" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
@@ -26,25 +27,43 @@ requirements:
     - pip >=21.3
   run:
     - python >={{ python_min }}
-    - wget # ASF Downloading
+    - affine
+    - aiohttp
+    - asf_search
+    - botocore
+    - burst2safe
     - compass >=0.4.1
     - dask
     - dolphin >=0.3.0
+    - fsspec
     - gdal
-    - h5py
+    - geopandas
+    - h5netcdf
+    - h5py >=3.6
     - hdf5 !=1.12.2 # https://github.com/SciTools/iris/issues/5187 and https://github.com/pydata/xarray/issues/7549
-    - numpy
+    - isce3 >=0.24
+    - libgdal-netcdf
+    - loguru
+    - numpy >=1.25
+    - opera-utils
+    - pandas
     - pydantic >=2.1
-    - pyproj >=3.3
-    - pyre >=1.12.1
+    - pyogrio
+    - pyproj >=3.2
     - python-dateutil
     - rasterio
-    - requests
-    - rich
+    - requests >=2.10
+    - rich >=12.0
     - rioxarray
+    - s3fs
     - sardem
+    - scipy
     - sentineleof
-    - shapely
+    - shapely >=2.0
+    - tqdm
+    - tyro
+    - xarray
+    - zarr >=3
 
 test:
   imports:
